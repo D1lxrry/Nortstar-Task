@@ -1,0 +1,67 @@
+# NorthStar Urban Mobility coursework, root .gitignore.
+# This file is the single source of truth for what should never enter
+# the repo. Subfolder .gitignore files repeat the most relevant rules
+# so the project still behaves if a folder is copied out on its own.
+
+# ---- Secrets ----------------------------------------------------------
+# The Atlas connection string is stored locally in mongodb/.env. That
+# file MUST never be committed. mongodb/.env.example is the safe stub
+# the marker fills in.
+.env
+.env.*
+!.env.example
+
+# ---- Raw dataset ------------------------------------------------------
+# The 9 NorthStar CSVs live in northstar_dataset/ at the repo root.
+# They are committed so the Colab notebooks can read them by raw URL
+# without the marker having to upload anything.
+
+# ---- Generated artefacts ---------------------------------------------
+# SQLite database written by sql_r/load_northstar.R.
+*.sqlite
+*.sqlite-journal
+
+# Charts produced by R analytics and Python processing.
+r_analytics/charts/
+python_processing/charts/
+
+# Cleaned tables produced by python_processing/etl.py.
+python_processing/cleaned/
+
+# RDS caches produced by R analytics.
+r_analytics/*.rds
+
+# ---- Language toolchain clutter --------------------------------------
+# Python.
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.pytest_cache/
+
+# R.
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+.Rproj.user/
+
+# ---- OS and editor clutter -------------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# ---- Course-supplied PDFs (not ours to redistribute) -----------------
+# The case study and assignment briefs are UWL teaching material.
+# They live in the workspace folder for reference only, never on GitHub.
+Case Study*.pdf
+Databases and Analytics Assignment*.pdf
+NorthStar Assignment Guide.docx
+
+# ---- Skill scratch folder --------------------------------------------
+assessment-wrap-up-skill/
