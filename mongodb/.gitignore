@@ -1,0 +1,16 @@
+# Never commit secrets.
+.env
+.env.*
+!.env.example
+
+# Python junk.
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Editor and OS clutter.
+.DS_Store
+.vscode/
+.idea/
