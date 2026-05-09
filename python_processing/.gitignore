@@ -1,0 +1,13 @@
+# Generated artefacts.
+cleaned/
+charts/
+
+# Python junk.
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# OS clutter.
+.DS_Store
