@@ -1,0 +1,13 @@
+# Generated artefacts.
+charts/
+*.rds
+*.csv
+
+# R working files.
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# OS clutter.
+.DS_Store
