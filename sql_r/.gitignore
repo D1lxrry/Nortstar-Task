@@ -1,0 +1,13 @@
+# Generated artefacts.
+*.sqlite
+*.sqlite-journal
+
+# R working files.
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+.Rproj.user/
+
+# OS clutter.
+.DS_Store
