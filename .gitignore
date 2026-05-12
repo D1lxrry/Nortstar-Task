@@ -26,7 +26,8 @@ r_analytics/charts/
 python_processing/charts/
 
 # Cleaned tables produced by python_processing/etl.py.
-python_processing/cleaned/
+# These are committed (raw + cleaned both ship) so the Colab notebooks
+# can read either directly from the repo's raw GitHub URLs.
 
 # RDS caches produced by R analytics.
 r_analytics/*.rds

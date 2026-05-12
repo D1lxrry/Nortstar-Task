@@ -4,56 +4,73 @@ This repo holds my full submission for the UWL Databases and Analytics
 module. The coursework is built around the NorthStar Urban Mobility
 case study and asks for the same business questions to be answered
 using 4 different paradigms: MongoDB, SQL through R, R analytics, and
-Python data processing. All 4 pipelines run end to end. All 5 Colab
-notebooks under `colab_notebooks/` are self-contained, so a marker can
-hit Run all on any of them and reproduce the work.
+Python data processing.
 
-If you only have a minute, open
-[`colab_notebooks/01_mongodb_pipeline.ipynb`](colab_notebooks/01_mongodb_pipeline.ipynb)
-in Colab and click Run all. That single notebook stands up the whole
-MongoDB pipeline against the Atlas cluster and prints the 12
-aggregations the report describes.
+The deliverable form is **3 Google Colab notebooks**, linked below.
+A random marker can click any of the badges, hit *Runtime > Run all*,
+and watch the whole pipeline build and run on their own Colab machine.
+No upload, no Drive mount, no Atlas credentials to copy. Everything
+the notebooks need (raw CSVs, cleaned CSVs, schema) is committed to
+this repo and pulled at runtime over HTTPS.
+
+## The 3 notebooks
+
+| Notebook | Marking bands | Open in Colab |
+|----------|---------------|---------------|
+| 1. Python Data Processing | Python data processing (20) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/D1lxrry/Nortstar-Task/blob/main/colab_notebooks/01_python_data_processing.ipynb) |
+| 2. SQL in R and R Analytics | SQL in R (15) + R analytics (15) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/D1lxrry/Nortstar-Task/blob/main/colab_notebooks/02_r_sql_and_analytics.ipynb) |
+| 3. MongoDB and Query Optimisation | MongoDB development (20) + Query optimisation (10) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/D1lxrry/Nortstar-Task/blob/main/colab_notebooks/03_mongodb_and_query_optimisation.ipynb) |
+
+Each notebook follows the same shape: methodology-phase sections,
+real code with real results, a final table that maps each section
+to the rubric line it satisfies.
+
+**Notebook 2 needs the R runtime.** In Colab, before pressing Run all,
+go to *Runtime > Change runtime type > R*, click Save, then run.
+Notebooks 1 and 3 use the default Python runtime.
+
+**Notebook 3 tries my live Atlas cluster first** and falls back to
+`mongomock` (an in-memory MongoDB) if the cluster is paused or
+unreachable. Every cell runs to completion either way.
 
 ## What lives where
 
-| Folder              | Paradigm               | Marks band           |
-|---------------------|------------------------|----------------------|
-| `mongodb/`          | MongoDB / PyMongo      | MongoDB development (20), Query optimisation (10) |
-| `sql_r/`            | R + SQLite + DBI       | SQL in R (15)        |
-| `r_analytics/`      | R + tidyverse + ggplot | R analytics (15)     |
-| `python_processing/`| pandas + scipy + sklearn | Python data processing (20) |
-| `colab_notebooks/`  | All 5 pipelines as Colab notebooks | Deliverable (GitHub plus Colab) |
+| Folder              | Paradigm                  | Marks band                                   |
+|---------------------|---------------------------|----------------------------------------------|
+| `colab_notebooks/`  | 3 Colab notebooks         | The deliverable form for the marker          |
+| `mongodb/`          | MongoDB / PyMongo         | MongoDB development (20), Query opt (10)     |
+| `sql_r/`            | R + SQLite + DBI          | SQL in R (15)                                |
+| `r_analytics/`      | R + tidyverse + ggplot    | R analytics (15)                             |
+| `python_processing/`| pandas + scipy + sklearn  | Python data processing (20)                  |
+| `northstar_dataset/`| 9 raw CSVs from the brief | Source data, read by every pipeline          |
+| `python_processing/cleaned/` | Cleaned CSVs after ETL | Same data, post canonicalisation     |
+| `figures/`          | Charts and tables         | Used by the reports                          |
 
-The 5 academic style writeups live alongside the code as Word
-documents:
+The 6 academic writeups live alongside the code as Word documents:
 
 - `NorthStar MongoDB Session Report.docx`
 - `Query Optimisation Report.docx`
 - `SQL in R Report.docx`
 - `R Analytics Report.docx`
 - `Python Data Processing Report.docx`
+- `NorthStar Consolidated Report.docx` (single deliverable covering all 5 bands)
 
 ## How to read this in 5 minutes
 
 1. Skim this README so you know the layout.
-2. Open `mongodb/schema_design.md` for the embedded order document
-   schema and the reasoning behind embedded vs referenced.
-3. Open any of the 5 Word reports for the formal academic writeup of
-   that section, including the actual numbers each pipeline produced.
-4. If you want to run anything yourself, every subfolder has a
-   `README.md` with the exact shell commands. The Colab notebooks
-   need no local setup at all, just open one and Run all.
+2. Click the *Open In Colab* badge for notebook 1 and watch it run.
+3. Open `mongodb/schema_design.md` if you want the embedded vs
+   referenced reasoning in writing.
+4. Open `NorthStar Consolidated Report.docx` for the formal academic
+   writeup of all 5 bands in one document.
 
-## How to run everything
+## Running the pipelines locally
 
-### The local way (Mac)
-
-Open a Terminal in each subfolder and run the listed commands. The
-order that makes most sense for reproducing the project from scratch
-is:
+Each subfolder has a `README.md` listing the exact shell commands.
+The headline path on a Mac with Python 3.10+ and R 4.3+ is:
 
 ```
-mongodb/             # ensure mongodb/.env has your MONGODB_URI, then
+mongodb/             # ensure mongodb/.env has MONGODB_URI, then
                      python3 -m pip install "pymongo[srv]" python-dotenv
                      python3 load_northstar.py
                      python3 queries_demo.py
@@ -62,64 +79,38 @@ mongodb/             # ensure mongodb/.env has your MONGODB_URI, then
                      python3 indexes_explain.py
                      python3 install_indexes.py
 
-sql_r/               # builds northstar.sqlite, runs the 9 SQL queries
-                     Rscript load_northstar.R
+sql_r/               Rscript load_northstar.R
                      Rscript queries.R
 
-r_analytics/         # 5 ggplot charts, 4 hypothesis tests, logistic regression
-                     Rscript analysis.R
+r_analytics/         Rscript analysis.R
 
-python_processing/   # pandas ETL plus scipy chi square plus random forest
-                     python3 -m pip install pandas numpy scipy matplotlib scikit-learn
+python_processing/   python3 -m pip install pandas numpy scipy matplotlib scikit-learn
                      python3 etl.py
                      python3 analyse.py
 ```
 
-The 9 raw NorthStar CSVs are committed under `northstar_dataset/` at
-the repo root, so the local pipelines and the Colab notebooks can
-both read them without any setup. If you keep them somewhere else
-on disk, edit the `DATASET_DIR` constant at the top of
-`load_northstar.py`, `etl.py` and `load_northstar.R`.
-
-### The Colab way
-
-Open any of these URLs in your browser. The first 2 need an Atlas
-connection string in a Colab Secret named `MONGODB_URI`; the last 3
-are fully self contained.
-
-```
-colab_notebooks/01_mongodb_pipeline.ipynb       Atlas pipeline
-colab_notebooks/02_query_optimisation.ipynb     indexing experiment
-colab_notebooks/03_sql_in_r.ipynb               9 SQL queries (R kernel)
-colab_notebooks/04_r_analytics.ipynb            ggplot + tests + glm (R kernel)
-colab_notebooks/05_python_data_processing.ipynb pandas + sklearn
-```
-
-For 03 and 04 set the runtime to R via Runtime, Change runtime type, R.
-Both R notebooks pull the 9 CSVs straight from this GitHub repo at
-runtime (the `northstar_dataset/` folder), so the marker does not have
-to upload anything. Click Run all from the top and the data is fetched
-inside the first code cell.
+The 9 raw CSVs are at `northstar_dataset/` in the repo so every
+loader picks them up by relative path.
 
 ## What the data ended up saying
 
-Whichever paradigm I queried, the same answer came out. Failed deliveries
-cluster by pickup zone (chi square p = 0.0103, the same number from scipy and
-from R), and not by anything intrinsic to the order. When I tried to predict
-failure with a random forest over 9 candidate predictors, 5 fold ROC AUC came
-out at 0.487 plus or minus 0.064, basically a coin flip. So the practical
-takeaway for NorthStar is to fix the high failure zones rather than spend
+Whichever paradigm I queried, the same answer came out. Failed
+deliveries cluster by pickup zone (chi square p = 0.0103, the same
+number in scipy and R), not by anything intrinsic to the order.
+A random forest over 9 candidate predictors lands at 5-fold ROC AUC
+of 0.487 plus or minus 0.064, basically a coin flip. The practical
+takeaway for NorthStar is to fix the failing zones rather than spend
 modelling effort trying to flag risky orders one by one.
 
 ## Reproducibility notes
 
-- Atlas free tier auto-pauses after 60 days idle. If a Colab notebook
-  cannot reach the cluster, sign into Atlas and click Resume Cluster.
+- Atlas free tier auto-pauses after 60 days idle. Notebook 3 still
+  runs in that case because it falls back to `mongomock`. If you want
+  the live cluster, sign into Atlas and click Resume Cluster.
 - Free tier requires `0.0.0.0/0` on the Network Access allow list for
-  Colab to connect. Add it under Network Access in the Atlas UI.
-- Notebook 04 used to depend on the SQLite database produced by
-  notebook 03, but it now rebuilds the SQLite file at runtime from
-  the GitHub-hosted CSVs, so the 2 notebooks are independent.
+  any non-Atlas client to connect. That entry is already in place.
+- Notebook 2 needs the R runtime. Switch via *Runtime > Change runtime
+  type > R* before Run all.
 
 ## Author
 
