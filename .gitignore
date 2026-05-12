@@ -65,3 +65,6 @@ NorthStar Assignment Guide.docx
 
 # ---- Skill scratch folder --------------------------------------------
 assessment-wrap-up-skill/
+
+# Word lock files when a doc is open
+~$*
