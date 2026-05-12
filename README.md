@@ -17,9 +17,9 @@ this repo and pulled at runtime over HTTPS.
 
 | Notebook | Marking bands | Open in Colab |
 |----------|---------------|---------------|
-| 1. Python Data Processing | Python data processing (20) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/D1lxrry/Nortstar-Task/blob/main/colab_notebooks/01_python_data_processing.ipynb) |
-| 2. SQL in R and R Analytics | SQL in R (15) + R analytics (15) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/D1lxrry/Nortstar-Task/blob/main/colab_notebooks/02_r_sql_and_analytics.ipynb) |
-| 3. MongoDB and Query Optimisation | MongoDB development (20) + Query optimisation (10) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/D1lxrry/Nortstar-Task/blob/main/colab_notebooks/03_mongodb_and_query_optimisation.ipynb) |
+| 1. Python Data Processing | Python data processing (20) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/D1lxrry/Northstar-Task/blob/main/colab_notebooks/01_python_data_processing.ipynb) |
+| 2. SQL in R and R Analytics | SQL in R (15) + R analytics (15) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/D1lxrry/Northstar-Task/blob/main/colab_notebooks/02_r_sql_and_analytics.ipynb) |
+| 3. MongoDB and Query Optimisation | MongoDB development (20) + Query optimisation (10) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/D1lxrry/Northstar-Task/blob/main/colab_notebooks/03_mongodb_and_query_optimisation.ipynb) |
 
 Each notebook follows the same shape: methodology-phase sections,
 real code with real results, a final table that maps each section
