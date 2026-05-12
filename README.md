@@ -46,14 +46,11 @@ unreachable. Every cell runs to completion either way.
 | `python_processing/cleaned/` | Cleaned CSVs after ETL | Same data, post canonicalisation     |
 | `figures/`          | Charts and tables         | Used by the reports                          |
 
-The 6 academic writeups live alongside the code as Word documents:
+The single academic writeup lives alongside the code as a Word document:
 
-- `NorthStar MongoDB Session Report.docx`
-- `Query Optimisation Report.docx`
-- `SQL in R Report.docx`
-- `R Analytics Report.docx`
-- `Python Data Processing Report.docx`
-- `NorthStar Consolidated Report.docx` (single deliverable covering all 5 bands)
+- `NorthStar Consolidated Report.docx` — covers all 5 marking bands in one
+  deliverable, with clickable links to the GitHub repo and the 3 Colab notebooks
+  at the top.
 
 ## How to read this in 5 minutes
 

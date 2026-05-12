@@ -5,28 +5,22 @@ Analytics module, NorthStar Urban Mobility case study. The right-hand
 column shows which line of the rubric each artefact is meant to
 satisfy. Submission date: 12 May 2026.
 
-## 1. Written reports (5 .docx files at repo root)
+## 1. Written report (single .docx at repo root)
 
-| File | Marks band | What it covers |
-|------|------------|----------------|
-| `NorthStar MongoDB Session Report.docx`   | MongoDB development, 20 marks      | Cluster creation, schema reasoning, 12 PyMongo aggregations including `$lookup`. |
-| `Query Optimisation Report.docx`          | Query optimisation, 10 marks       | 4 query archetypes profiled before and after indexes, with explain plans. |
-| `SQL in R Report.docx`                    | SQL in R, 15 marks                 | Normalised SQLite mirror, 9 SQL queries including a window function. |
-| `R Analytics Report.docx`                 | R analytics, 15 marks              | tidyverse prep, 5 ggplot charts, 4 hypothesis tests, logistic regression. |
-| `Python Data Processing Report.docx`      | Python data processing, 20 marks   | pandas ETL, scipy chi square, scikit-learn random forest. |
+| File | Marks bands covered | What it covers |
+|------|---------------------|----------------|
+| `NorthStar Consolidated Report.docx` | All 5 bands (80 marks of the 80-mark written submission) | Single deliverable. 18 numbered code listings pointing at the source files and line ranges, 16 numbered figures for charts and tables, clickable links to the GitHub repo and the 3 Colab notebooks at the top. |
 
-Total covered: 80 of 80 written marks. The remaining 20 marks come
-from the in person demo, which references the same notebooks live.
+The remaining 20 marks come from the in-person demo, which references
+the same notebooks live.
 
 ## 2. Colab notebooks (`colab_notebooks/`)
 
-| Notebook | Runtime | Standalone? |
-|----------|---------|-------------|
-| `01_mongodb_pipeline.ipynb`        | Python | Needs `MONGODB_URI` Colab Secret. |
-| `02_query_optimisation.ipynb`      | Python | Needs `MONGODB_URI` Colab Secret. |
-| `03_sql_in_r.ipynb`                | R      | Yes, the CSVs are pulled from the GitHub repo at runtime. |
-| `04_r_analytics.ipynb`             | R      | Yes, the CSVs are pulled from the GitHub repo at runtime. |
-| `05_python_data_processing.ipynb`  | Python | Yes, the CSVs are pulled from the GitHub repo at runtime. |
+| Notebook | Runtime | Bands | Standalone? |
+|----------|---------|-------|-------------|
+| `01_python_data_processing.ipynb`        | Python | Python data processing (20) | Yes, pulls CSVs from the repo at runtime. |
+| `02_r_sql_and_analytics.ipynb`           | R      | SQL in R (15) + R analytics (15) | Yes, pulls CSVs from the repo at runtime. |
+| `03_mongodb_and_query_optimisation.ipynb`| Python | MongoDB (20) + Query optimisation (10) | Yes. Tries live Atlas first, falls back to mongomock if cluster unreachable. |
 
 Each notebook reproduces the corresponding section end to end. The
 marker can press Run all on any of them.
