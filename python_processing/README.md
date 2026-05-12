@@ -1,7 +1,7 @@
 # Python data processing pipeline
 
 This folder is the Python contribution to the NorthStar Urban Mobility
-coursework. It complements the MongoDB and SQL pipelines in
+& Logistics coursework. It complements the MongoDB and SQL pipelines in
 `mongodb/` and `sql_r/` by demonstrating how the same dataset is
 extracted, validated, transformed and modelled using pandas, scipy
 and scikit-learn.

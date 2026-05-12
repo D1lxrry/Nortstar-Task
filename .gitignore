@@ -1,4 +1,4 @@
-# NorthStar Urban Mobility coursework, root .gitignore.
+# NorthStar Urban Mobility & Logistics coursework, root .gitignore.
 # This file is the single source of truth for what should never enter
 # the repo. Subfolder .gitignore files repeat the most relevant rules
 # so the project still behaves if a folder is copied out on its own.

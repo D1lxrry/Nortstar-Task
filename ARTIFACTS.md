@@ -1,9 +1,9 @@
 # Submission artefacts index
 
 Everything below is what I am handing in for the UWL Databases and
-Analytics module, NorthStar Urban Mobility case study. The right-hand
-column shows which line of the rubric each artefact is meant to
-satisfy. Submission date: 12 May 2026.
+Analytics module, NorthStar Urban Mobility & Logistics case study.
+The right-hand column shows which line of the rubric each artefact
+is meant to satisfy. Submission date: 12 May 2026.
 
 ## 1. Written report (single .docx at repo root)
 

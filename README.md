@@ -1,10 +1,10 @@
-# NorthStar Urban Mobility, Databases and Analytics coursework
+# NorthStar Urban Mobility & Logistics, Databases and Analytics coursework
 
 This repo holds my full submission for the UWL Databases and Analytics
-module. The coursework is built around the NorthStar Urban Mobility
-case study and asks for the same business questions to be answered
-using 4 different paradigms: MongoDB, SQL through R, R analytics, and
-Python data processing.
+module. The coursework is built around the NorthStar Urban Mobility &
+Logistics case study and asks for the same business questions to be
+answered using 4 different paradigms: MongoDB, SQL through R, R
+analytics, and Python data processing.
 
 The deliverable form is **3 Google Colab notebooks**, linked below.
 A random marker can click any of the badges, hit *Runtime > Run all*,
@@ -111,5 +111,5 @@ modelling effort trying to flag risky orders one by one.
 
 ## Author
 
-Laz, UWL Databases and Analytics, 2025-2026 academic year. Submitted
-12 May 2026.
+Larry Oguabia, UWL Databases and Analytics, 2025-2026 academic year.
+Submitted 12 May 2026.
