@@ -9,7 +9,7 @@ is meant to satisfy. Submission date: 12 May 2026.
 
 | File | Marks bands covered | What it covers |
 |------|---------------------|----------------|
-| `NorthStar Consolidated Report.docx` | All 5 bands (80 marks of the 80-mark written submission) | Single deliverable. 18 numbered code listings pointing at the source files and line ranges, 9 numbered figures plus 5 native tables, clickable links to the GitHub repo and the 3 Colab notebooks at the top. |
+| `Final Database Report.docx` | All 5 bands (80 marks of the 80-mark written submission) | Single deliverable. 150-word abstract on page 1, 18 numbered code listings keyed to source files and line ranges, 4 numbered figures plus 5 native tables, clickable links to the GitHub repo and the 3 Colab notebooks at the top. |
 
 The remaining 20 marks come from the in-person demo, which references
 the same notebooks live.

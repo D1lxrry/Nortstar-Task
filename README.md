@@ -48,9 +48,9 @@ unreachable. Every cell runs to completion either way.
 
 The single academic writeup lives alongside the code as a Word document:
 
-- `NorthStar Consolidated Report.docx` covers all 5 marking bands in one
-  deliverable, with clickable links to the GitHub repo and the 3 Colab notebooks
-  at the top.
+- `Final Database Report.docx` covers all 5 marking bands in one
+  deliverable, with a 150-word abstract on page 1 and clickable links to
+  the GitHub repo and the 3 Colab notebooks at the top.
 
 ## How to read this in 5 minutes
 
@@ -58,7 +58,7 @@ The single academic writeup lives alongside the code as a Word document:
 2. Click the *Open In Colab* badge for notebook 1 and watch it run.
 3. Open `mongodb/schema_design.md` if you want the embedded vs
    referenced reasoning in writing.
-4. Open `NorthStar Consolidated Report.docx` for the formal academic
+4. Open `Final Database Report.docx` for the formal academic
    writeup of all 5 bands in one document.
 
 ## Running the pipelines locally
