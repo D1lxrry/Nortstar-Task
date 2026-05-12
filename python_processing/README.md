@@ -60,16 +60,14 @@ spellings collapse to 7 canonical ones across the dataset.
 The scorecard is written to `cleaned/data_quality.csv` so it pastes
 straight into the report appendix.
 
-## Reproducing report figures
+## Charts
 
-`charts/` contains 4 PNG figures used in `Python Data Processing
-Report.docx`:
+`charts/` contains 4 PNGs that the consolidated report pulls in:
 
 - `P1_feature_importance.png`: random forest feature importance.
 - `P2_roc_curve.png`: ROC curve on the hold out test fold.
-- `P3_confusion_matrix.png`: confusion matrix on the hold out test
-  fold.
+- `P3_confusion_matrix.png`: confusion matrix on the hold out test fold.
 - `P4_failure_heatmap.png`: failure rate by pickup_zone and
   service_type, generated with matplotlib (the R equivalent in
-  `r_analytics/charts/03_failure_heatmap.png` is generated with
-  ggplot, so the 2 cross check each other).
+  `r_analytics/charts/03_failure_heatmap.png` is ggplot, so the 2
+  cross-check each other).

@@ -9,7 +9,7 @@ satisfy. Submission date: 12 May 2026.
 
 | File | Marks bands covered | What it covers |
 |------|---------------------|----------------|
-| `NorthStar Consolidated Report.docx` | All 5 bands (80 marks of the 80-mark written submission) | Single deliverable. 18 numbered code listings pointing at the source files and line ranges, 16 numbered figures for charts and tables, clickable links to the GitHub repo and the 3 Colab notebooks at the top. |
+| `NorthStar Consolidated Report.docx` | All 5 bands (80 marks of the 80-mark written submission) | Single deliverable. 18 numbered code listings pointing at the source files and line ranges, 9 numbered figures plus 5 native tables, clickable links to the GitHub repo and the 3 Colab notebooks at the top. |
 
 The remaining 20 marks come from the in-person demo, which references
 the same notebooks live.
@@ -44,7 +44,6 @@ below.
 | File | Purpose |
 |------|---------|
 | `README.md`                                  | Top level orientation and how to run anything in 5 minutes. |
-| `colab_notebooks/SETUP_CHECKLIST.md`         | Step by step Colab setup, roughly 5 minutes. |
 | `mongodb/.env.example`                       | Sanitised template for the Atlas URI secret. |
 | `mongodb/schema_design.md`                   | Embedded vs referenced reasoning for the order document. |
 | `LICENSE`                                    | MIT licence covering all code. |
@@ -73,6 +72,6 @@ that fail most, rather than trying to flag risky orders one by one.
   cannot reach the cluster, sign into Atlas and click Resume Cluster.
 - Free tier requires `0.0.0.0/0` on the Network Access allow list
   for Colab to reach it. Add it under Network Access in the Atlas UI.
-- Notebook 04 used to depend on the SQLite database from notebook
-  03. It now rebuilds the SQLite file at runtime from the GitHub
-  hosted CSVs, so the 5 notebooks are independent.
+- The R notebook used to depend on a SQLite database built by an
+  earlier notebook. It now rebuilds the SQLite file at runtime from
+  the GitHub hosted CSVs, so the 3 notebooks are independent.

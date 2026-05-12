@@ -1,89 +1,38 @@
-# NorthStar MongoDB Atlas setup
+# NorthStar MongoDB pipeline
 
-This folder contains everything needed to connect your Mac to the MongoDB Atlas
-cluster called NorthStar, which is the free tier cluster you will use for the
-Databases and Analytics coursework.
+MongoDB side of the coursework. Loads the 9 NorthStar CSVs into the
+Atlas cluster, canonicalises zone spellings, builds the embedded
+`orders_aggregate` collection, runs 12 analytical aggregations, and
+profiles 4 query archetypes before vs after indexing.
 
-## Files in this folder
+The Atlas URI lives in a local `.env` (not committed). The
+`.env.example` file is the safe stub.
 
-- `.env` is where your secret connection string lives. Never share or commit this file.
-- `test_connection.py` pings the cluster and lists the databases to confirm the setup works.
-- `.gitignore` keeps `.env` out of git if you later version control this folder.
-- `README.md` is this file.
+## Files
 
-## 3 step setup
+- `load_northstar.py` bulk-loads the 9 raw CSVs into 9 collections.
+- `clean_and_build.py` collapses 16 raw zone spellings into 7
+  canonical values, then assembles `orders_aggregate` with embedded
+  customer, delivery and incidents.
+- `queries_demo.py` is the starter set, Q1 to Q6. Q4 is where the
+  zone-quality issue surfaced.
+- `queries_v2.py` is the analytical set, V1 to V6, against the
+  embedded collection. V5 is the one query that needs `$lookup`
+  because drivers are intentionally not embedded.
+- `indexes_explain.py` runs the 4 archetypes through
+  `executionStats` with and without the proposed indexes and prints
+  a `docsExamined` reduction factor for each.
+- `install_indexes.py` installs the recommended production index set.
+- `schema_design.md` writes up the embedded vs referenced reasoning.
+- `test_connection.py` pings the cluster and lists databases.
+- `.env.example` is the stub for the Atlas connection string.
 
-### Step 1: install the 1 missing Python package
-
-PyMongo is already installed. You still need python-dotenv so the script can
-read your secret connection string from the `.env` file. In Terminal run:
-
-```
-python3 -m pip install python-dotenv
-```
-
-### Step 2: paste your Atlas connection string into .env
-
-1. Open `.env` in a text editor (TextEdit, VS Code, or any editor).
-2. Find the line that reads `MONGODB_URI=""`.
-3. Paste the full SRV string from Atlas between the quotes. It looks like:
-
-```
-mongodb+srv://larryco211_db_user:YOUR_PASSWORD@northstar.xxxxxx.mongodb.net/?appName=NorthStar
-```
-
-4. Save the file. Close it.
-
-If you accidentally lost the connection string, you can find it again in Atlas
-under Database, then Connect, then Drivers, but Atlas will only show the
-password again if you reset it under Database Access.
-
-### Step 3: run the test
-
-In Terminal:
+## Run
 
 ```
-cd "~/Documents/University Work/Databases&Analytics/Databases and Anallytics Assesment/mongodb"
-python3 test_connection.py
+python3 -m pip install "pymongo[srv]" python-dotenv
+python3 load_northstar.py
+python3 clean_and_build.py
+python3 queries_v2.py
+python3 indexes_explain.py
 ```
-
-A successful run prints:
-
-```
-Connecting to MongoDB Atlas...
-Connection OK. Ping successful.
-
-Databases on this cluster:
-  - admin
-  - local
-  - sample_airbnb
-  - sample_analytics
-  - sample_geospatial
-  - sample_mflix
-  - sample_restaurants
-  - sample_supplies
-  - sample_training
-  - sample_weatherdata
-```
-
-And also shows 1 example document from the Airbnb dataset.
-
-## Common errors and fixes
-
-- **MONGODB_URI is empty:** you forgot to paste the connection string into `.env`.
-- **Authentication failed:** wrong password. Reset it in Atlas under Database Access.
-- **Could not reach the cluster:** you are offline, or your current IP is not on the
-  Atlas Network Access list. Sign in to Atlas, go to Network Access, and add
-  your current IP.
-- **dnspython not found:** rerun `python3 -m pip install "pymongo[srv]"`.
-
-## Once this works
-
-You are ready to start the actual coursework tasks. Typical next steps are:
-
-1. Load the NorthStar CSV or JSON data into MongoDB using `pymongo.insert_many`.
-2. Write queries in Python to answer the assignment questions.
-3. Pull query results into pandas or into R for analysis and charts.
-
-Ask Claude for help any time, and always work from this folder so the `.env`
-file is picked up automatically.

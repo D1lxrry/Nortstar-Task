@@ -48,7 +48,7 @@ unreachable. Every cell runs to completion either way.
 
 The single academic writeup lives alongside the code as a Word document:
 
-- `NorthStar Consolidated Report.docx` — covers all 5 marking bands in one
+- `NorthStar Consolidated Report.docx` covers all 5 marking bands in one
   deliverable, with clickable links to the GitHub repo and the 3 Colab notebooks
   at the top.
 
